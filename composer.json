@@ -1,0 +1,47 @@
+{
+  "name": "tp5er/think-elasticsearch",
+  "description": "An easy way to use the official PHP ElasticSearch client in your thinkphp applications.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "tp5er",
+      "email": "tp5er@qq.com"
+    }
+  ],
+  "require": {
+    "elasticsearch/elasticsearch": "^7.11",
+    "monolog/monolog": "^2.3"
+  },
+  "require-dev": {
+    "topthink/framework": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "tp5er\\think\\elasticsearch\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tp5er\\think\\elasticsearch\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "fresh": [
+      "rm -rf vendor composer.lock",
+      "composer install"
+    ],
+    "tests": [
+      "php vendor/bin/phpunit"
+    ]
+  },
+  "extra": {
+    "think": {
+      "services": [
+        "tp5er\\think\\elasticsearch\\Service"
+      ],
+      "config": {
+        "elasticsearch": "config/elasticsearch.php"
+      }
+    }
+  }
+}
